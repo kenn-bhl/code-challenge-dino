@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live Scoreboard</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <main>
+      <div class="page-header">
+        <h1>Live Scoreboard (Top 10)</h1>
+        <button id="logoutBtn">Logout</button>
+      </div>
+
+      <section class="panel">
+        <h2>Mission</h2>
+        <button id="startMission">Start Mission</button>
+        <button id="completeMission">Complete Mission (+10)</button>
+        <p>Expires At: <code id="currentExpiresAt">(none)</code></p>
+        <pre id="actionResult"></pre>
+      </section>
+
+      <section class="panel">
+        <h2>Top 10 Leaderboard</h2>
+        <button id="refresh">Refresh Snapshot</button>
+        <ul id="leaderboard"></ul>
+      </section>
+    </main>
+    <script src="../config.js"></script>
+    <script type="module" src="../scripts/scoreboard.js"></script>
+  </body>
+</html>

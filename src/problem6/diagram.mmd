@@ -1,0 +1,21 @@
+sequenceDiagram
+  autonumber
+  participant User as User Browser (Mock UI)
+  participant API as Backend API Service
+  participant Score as Score Service
+  participant RT as Realtime Hub (SSE)
+
+  User->>API: GET /api/v1/leaderboard?limit=10 (API key)
+  API->>Score: getTopLeaderboard(10)
+  Score-->>API: top10 snapshot
+  API-->>User: success envelope with leaderboard data
+
+  User->>API: POST /api/v1/actions/complete { userId, actionId, actionProof }
+  API->>API: Validate API key + action proof
+  API->>Score: applyActionScore(userId, actionId, +10)
+  Score-->>API: { applied, score }
+  API->>Score: getTopLeaderboard(10)
+  Score-->>API: updated top10
+  API->>RT: broadcast leaderboard.updated
+  RT-->>User: SSE event leaderboard.updated
+  API-->>User: success envelope for action completion

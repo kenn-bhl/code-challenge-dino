@@ -1,0 +1,8 @@
+{
+  "name": "problem6-workspace",
+  "private": true,
+  "workspaces": [
+    "web/backend",
+    "web/frontend"
+  ]
+}

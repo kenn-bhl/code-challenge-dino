@@ -1,0 +1,27 @@
+{
+  "name": "problem6-scoreboard-backend",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/main.ts",
+    "start": "tsx src/main.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "start:dist": "node dist/main.js",
+    "migrate:make": "knex --knexfile knexfile.mjs migrate:make --migrations-directory ./database/migrations",
+    "migrate:latest": "knex --knexfile knexfile.mjs migrate:latest --migrations-directory ./database/migrations",
+    "migrate:rollback": "knex --knexfile knexfile.mjs migrate:rollback --migrations-directory ./database/migrations"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "knex": "^3.1.0",
+    "pg": "^8.14.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.2",
+    "@types/pg": "^8.11.11",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

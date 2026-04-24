@@ -1,0 +1,29 @@
+{
+  "name": "problem5-crude-server",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/services/main.ts",
+    "start": "tsx src/services/main.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "start:dist": "node dist/src/services/main.js",
+    "debug:health": "tsx src/tasks/debug/health-check.ts",
+    "migrate:make": "knex --knexfile knexfile.mjs migrate:make --migrations-directory ./database/migrations",
+    "migrate:latest": "knex --knexfile knexfile.mjs migrate:latest --migrations-directory ./database/migrations",
+    "migrate:rollback": "knex --knexfile knexfile.mjs migrate:rollback --migrations-directory ./database/migrations",
+    "migrate:status": "knex --knexfile knexfile.mjs migrate:status --migrations-directory ./database/migrations"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "knex": "^3.2.9",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.2",
+    "@types/pg": "^8.11.10",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

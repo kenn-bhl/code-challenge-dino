@@ -1,0 +1,12 @@
+{
+  "name": "problem6-frontend",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node server.mjs",
+    "start": "node server.mjs"
+  },
+  "dependencies": {
+    "dotenv": "^16.6.1"
+  }
+}
